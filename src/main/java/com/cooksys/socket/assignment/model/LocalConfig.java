@@ -9,7 +9,15 @@ public class LocalConfig {
     @XmlAttribute
     private int port;
 
-    public int getPort() {
+    public LocalConfig(){
+    	
+    }
+
+    public LocalConfig(int port) {
+		this.port = port;
+	}
+
+	public int getPort() {
         return port;
     }
 

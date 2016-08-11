@@ -12,7 +12,16 @@ public class RemoteConfig {
     @XmlAttribute
     private int port;
 
-    public String getHost() {
+    public RemoteConfig(){
+    	
+    }
+    
+    public RemoteConfig(String host, int port) {
+		this.host = host;
+		this.port = port;
+	}
+
+	public String getHost() {
         return host;
     }
 
