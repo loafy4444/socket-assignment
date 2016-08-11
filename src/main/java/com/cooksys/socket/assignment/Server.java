@@ -38,15 +38,20 @@ public class Server {
 		return st;
 	}
 
-	public static void main(String[] args) throws JAXBException {
+	public static void main(String[] args) {
 		String path = "config/config.xml";
+		Student st = null;
+		Config con = null;
+		Marshaller marshal = null;
 		
-		JAXBContext jaxb = Utils.createJAXBContext();
-		Marshaller marshal = jaxb.createMarshaller();
-		
-		Config con = Utils.loadConfig(path, jaxb);
-			
-		Student st = loadStudent(con.getStudentFilePath(), jaxb);
+		try {
+			JAXBContext jaxb = Utils.createJAXBContext();
+			 marshal = jaxb.createMarshaller();
+			 con = Utils.loadConfig(path, jaxb);
+			 st = loadStudent(con.getStudentFilePath(), jaxb);
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
 		
 		try (
 				ServerSocket ss = new ServerSocket(con.getLocal().getPort());
@@ -64,7 +69,7 @@ public class Server {
 					out.flush();
 							
 					
-				} catch (IOException e) {
+				} catch (IOException | JAXBException e) {
 					e.printStackTrace();
 				}
 			}

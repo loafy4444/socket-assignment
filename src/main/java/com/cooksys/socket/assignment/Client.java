@@ -20,16 +20,20 @@ import com.cooksys.socket.assignment.model.Student;
 
 public class Client {
 	
-    public static void main(String[] args) throws JAXBException {
+    public static void main(String[] args) {
     	String path = "config/config.xml";
+    	Student st = null;
+    	Config con = null;
+    	Unmarshaller unmarshal = null;
     	
-    	JAXBContext jaxb = Utils.createJAXBContext();
-		Unmarshaller unmarshal = jaxb.createUnmarshaller();
+		try {
+			JAXBContext jaxb = Utils.createJAXBContext();
+			unmarshal = jaxb.createUnmarshaller();
+			con = Utils.loadConfig(path, jaxb);
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		}
 		
-		Student st = null;
-		
-		Config con = Utils.loadConfig(path, jaxb);
-
 		try(
     			Socket s = new Socket(con.getRemote().getHost(), con.getRemote().getPort()); 
 				InputStream in = s.getInputStream(); 
@@ -43,7 +47,7 @@ public class Client {
     				
     		System.out.println(st.toString());
     		
-    	}catch(IOException e){
+    	}catch(IOException | JAXBException e){
     		e.printStackTrace();
     	}
     	

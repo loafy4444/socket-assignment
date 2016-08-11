@@ -34,7 +34,6 @@ public class Utils {
     public static Config loadConfig(String configFilePath, JAXBContext jaxb) throws JAXBException {
     	File file = new File(configFilePath);
     	Unmarshaller unmarshal = jaxb.createUnmarshaller();
-		
 		Config con = (Config) unmarshal.unmarshal(file);
     	return con; 
     }

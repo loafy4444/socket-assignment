@@ -74,12 +74,18 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", favoriteIDE='" + favoriteIDE + '\'' +
-                ", favoriteLanguage='" + favoriteLanguage + '\'' +
-                ", favoriteParadigm='" + favoriteParadigm + '\'' +
-                '}';
+    	String string = "Student: " + firstName + " " + lastName +
+    							"\nFavorite IDE: " + favoriteIDE +
+    							"\nFavorite Language: " + favoriteLanguage + 
+    							"\nFavorite Paradigm: " + favoriteParadigm;
+    	return string;
+    	
+//        return "Student{" +
+//                "firstName='" + firstName + '\'' +
+//                ", lastName='" + lastName + '\'' +
+//                ", favoriteIDE='" + favoriteIDE + '\'' +
+//                ", favoriteLanguage='" + favoriteLanguage + '\'' +
+//                ", favoriteParadigm='" + favoriteParadigm + '\'' +
+//                '}';
     }
 }

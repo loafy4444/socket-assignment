@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<config>
-	<local port="12345" />
-	<remote host="10.1.1.113" port="12345" />
-	<student-file-path>config/student.xml</student-file-path>
-</config>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><config><local port="12345"/><remote host="10.1.1.225" port="12345"/><student-file-path>config/student.xml</student-file-path></config>
